@@ -1,6 +1,7 @@
 # commons-fileclient
 This library is used for storage and retrieval of documents from cloud storage platforms such as Google Cloud Storage, Amazon S3 etc.
 
+## Contents
 - [commons-lang](#commons-lang)
     * [Installation](#installation)
     * [Key Classes](#key-classes)
@@ -12,7 +13,7 @@ To add a dependency on this library using Maven, use the following:
 ```xml
 <dependency>
     <groupId>com.increff.commons</groupId>
-    <artifactId>commons-fileclient</artifactId>
+    <artifactId>increff-commons-fileclient</artifactId>
     <version>${increff-commons-fileclient.version}</version>
 </dependency>
 ```

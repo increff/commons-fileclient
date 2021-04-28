@@ -1,0 +1,8 @@
+com/nextscm/commons/fileclient/FileClientTest.class
+com/nextscm/commons/fileclient/FileClientWithAwsIT.class
+com/nextscm/commons/fileclient/FileClientWithNativeTest.class
+com/nextscm/commons/fileclient/UtilsTest.class
+com/nextscm/commons/fileclient/FileClientWithGcpIT.class
+com/nextscm/commons/fileclient/GcpFileProviderTest.class
+com/nextscm/commons/fileclient/AwsFileProviderTest.class
+com/nextscm/commons/fileclient/FileData.class

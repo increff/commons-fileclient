@@ -1,0 +1,8 @@
+com/nextscm/commons/fileclient/FileClientException.class
+com/nextscm/commons/fileclient/AwsFileProvider.class
+com/nextscm/commons/fileclient/ObjectSummary.class
+com/nextscm/commons/fileclient/Utils.class
+com/nextscm/commons/fileclient/NativeFileProvider.class
+com/nextscm/commons/fileclient/FileClient.class
+com/nextscm/commons/fileclient/AbstractFileProvider.class
+com/nextscm/commons/fileclient/GcpFileProvider.class

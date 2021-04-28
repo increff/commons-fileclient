@@ -1,0 +1,8 @@
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/Utils.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/AbstractFileProvider.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/ObjectSummary.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/FileClientException.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/NativeFileProvider.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/AwsFileProvider.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/GcpFileProvider.java
+/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/main/java/com/nextscm/commons/fileclient/FileClient.java

@@ -1,8 +1,8 @@
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/FileData.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/FileClientWithAwsIT.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/AwsFileProviderTest.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/FileClientTest.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/GcpFileProviderTest.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/UtilsTest.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/FileClientWithNativeTest.java
-/home/user/Increff/Repos/commons/bitbucket/commons-fileclient/src/test/java/com/nextscm/commons/fileclient/FileClientWithGcpIT.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/FileClientWithAwsIT.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/AwsFileProviderTest.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/FileClientWithGcpIT.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/UtilsTest.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/GcpFileProviderTest.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/FileData.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/FileClientTest.java
+/home/user/Increff/Repos/commons/github/commons-fileclient/src/test/java/com/increff/commons/fileclient/FileClientWithNativeTest.java

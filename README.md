@@ -1,4 +1,4 @@
-# commons-lang
+# commons-fileclient
 This library is used for storage and retrieval of documents from cloud storage platforms such as Google Cloud Storage, Amazon S3 etc.
 
 - [commons-lang](#commons-lang)
@@ -18,7 +18,7 @@ To add a dependency on this library using Maven, use the following:
 ```
 
 ## Key Classes
-###AbstractFileProvider
+### AbstractFileProvider
 
 An abstract class called `AbstractFileProvider` contains the methods to create, read, delete and write objects from a storage. These methods are then implemented by the classes that perform these operations on different storage platforms such as
 

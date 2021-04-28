@@ -1,8 +1,0 @@
-com/increff/commons/fileclient/FileClientWithGcpIT.class
-com/increff/commons/fileclient/FileData.class
-com/increff/commons/fileclient/FileClientWithAwsIT.class
-com/increff/commons/fileclient/AwsFileProviderTest.class
-com/increff/commons/fileclient/FileClientWithNativeTest.class
-com/increff/commons/fileclient/UtilsTest.class
-com/increff/commons/fileclient/GcpFileProviderTest.class
-com/increff/commons/fileclient/FileClientTest.class

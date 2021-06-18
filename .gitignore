@@ -15,10 +15,6 @@
 log/
 target/
 
-
-#Ignore local properties
-test.properties
-
 #Igore backups
 backup/
 *.bkp

@@ -80,7 +80,7 @@ public class GcpFileProvider extends AbstractFileProvider {
 
 	/**
 	 * This function will upload the file in the stream at the specified path.
-	 * This will fail for files > CAPACITY(INT) ~ 2GB = the maximum length of an array in JAVA.
+	 * This will fail for files more than CAPACITY(INT) ~ 2GB = the maximum length of an array in JAVA.
 	 */
 	@Override
 	public void create(String filePath, InputStream is) throws FileClientException {
@@ -137,9 +137,6 @@ public class GcpFileProvider extends AbstractFileProvider {
 	 *
 	 * https://cloud.google.com/storage/docs/access-control/create-signed-urls-program
 	 *
-	 * @param filePath
-	 * @return
-	 * @throws Exception
 	 */
 	@Override
 	public String getWriteUri(String filePath) throws FileClientException {

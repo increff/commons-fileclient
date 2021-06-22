@@ -43,7 +43,7 @@ public class FileClient {
 	/**
 	 * Creates file at specified location
 	 * Use this mechanism only when you want your own custom path and the file is large.
-	 * Only GCP File Provider has a separate mechanism which is fail safe for files > 2 GB.
+	 * Only GCP File Provider has a separate mechanism which is fail safe for files greater than 2 GB.
 	 * The file will go into BasePath/filePath
 	 * @param filePath Custom path at which to create file
 	 * @param is Input stream from which to read data

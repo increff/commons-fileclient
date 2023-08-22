@@ -16,11 +16,14 @@ package com.increff.commons.fileclient;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractFileProvider {
 
 	/* API to use when directly writing */
 	public abstract void create(String filePath, InputStream is) throws FileClientException;
+
+	public abstract void create(String filePath, InputStream is, Map<String,String> metaData) throws FileClientException;
 
 	/* API to use when directly writing large files */
 	public void createForLargeFiles(String filePath, InputStream is) throws FileClientException {

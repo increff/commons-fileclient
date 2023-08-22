@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.amazonaws.HttpMethod;
@@ -59,6 +60,12 @@ public class AwsFileProvider extends AbstractFileProvider {
 	public void create(String filePath, InputStream is) {
 		ObjectMetadata om = new ObjectMetadata();
 		s3.putObject(awsBucketName, filePath, is, om);
+	}
+
+
+	@Override
+	public void create(String filePath, InputStream is, Map<String, String> metaData) throws FileClientException {
+		throw new FileClientException("Method Unsupported Exception", new Exception());
 	}
 
 	@Override

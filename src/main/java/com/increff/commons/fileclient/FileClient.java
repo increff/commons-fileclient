@@ -16,6 +16,7 @@ package com.increff.commons.fileclient;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -38,6 +39,19 @@ public class FileClient {
 	 */
 	public void create(String filePath, InputStream is) throws FileClientException {
 			provider.create(filePath, is);
+	}
+
+	/**
+	 * Creates file at specified location with some metaData
+	 * Use this mechanism only when you want your own custom path.
+	 * Only GCP File Provider have its implementation
+	 * The file will go into BasePath/filePath
+	 * @param filePath Custom path at which to create file
+	 * @param is Input stream from which to read data
+	 * @param metaData MetaData properties of file
+	 */
+	public void create(String filePath, InputStream is , Map<String, String> metaData) throws FileClientException {
+		provider.create(filePath, is, metaData);
 	}
 
 	/**

@@ -60,6 +60,7 @@ public class AwsFileProvider extends AbstractFileProvider {
 		ObjectMetadata om = new ObjectMetadata();
 		s3.putObject(awsBucketName, filePath, is, om);
 	}
+
 	@Override
 	public List<ObjectSummary> getAllObjects(String directory) {
 		ListObjectsRequest listObjectsRequest = new ListObjectsRequest()

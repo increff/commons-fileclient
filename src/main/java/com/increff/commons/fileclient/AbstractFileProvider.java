@@ -23,7 +23,9 @@ public abstract class AbstractFileProvider {
 	/* API to use when directly writing */
 	public abstract void create(String filePath, InputStream is) throws FileClientException;
 
-	public abstract void create(String filePath, InputStream is, Map<String,String> metaData) throws FileClientException;
+	public void create(String filePath, InputStream is, Map<String,String> metaData) throws FileClientException {
+		throw new FileClientException("This method is not implemented", new Exception());
+	}
 
 	/* API to use when directly writing large files */
 	public void createForLargeFiles(String filePath, InputStream is) throws FileClientException {

@@ -22,7 +22,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.Map;
 
 public class NativeFileProvider extends AbstractFileProvider {
 
@@ -41,11 +40,6 @@ public class NativeFileProvider extends AbstractFileProvider {
 		}catch (IOException e){
 			throw new FileClientException("Error while creating file:"+e.getMessage(), e);
 		}
-	}
-
-	@Override
-	public void create(String filePath, InputStream is, Map<String, String> metaData) throws FileClientException {
-		throw new FileClientException("Method Unsupported Exception", new Exception());
 	}
 
 	@Override

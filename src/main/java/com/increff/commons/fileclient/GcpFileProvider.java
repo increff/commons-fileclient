@@ -94,6 +94,25 @@ public class GcpFileProvider extends AbstractFileProvider {
 	}
 
 	/**
+	 * This function will upload the file in the stream at the specified path with metaData properties.
+	 * This will fail for files more than CAPACITY(INT) ~ 2GB = the maximum length of an array in JAVA.
+	 */
+	@Override
+	public void create(String filePath, InputStream is, Map<String,String> metadata) throws FileClientException {
+		BlobId blobId = BlobId.of(bucketName, filePath);
+		BlobInfo.Builder builder = BlobInfo.newBuilder(blobId);
+		if (Objects.nonNull(metadata))
+			builder.setMetadata(metadata);
+		BlobInfo blobInfo = builder.build();
+
+		try {
+			storage.create(blobInfo, IOUtils.toByteArray(is));
+		} catch (IOException e){
+			throw new FileClientException("Error while creating file: "+e.getMessage(), e);
+		}
+	}
+
+	/**
 	 * This function uses a writer to upload a file to the remote bucket.
 	 * Writes the file in batches of WRITE_BUFFER_SIZE.
 	 */

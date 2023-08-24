@@ -28,4 +28,7 @@ public class FileClientException extends IOException {
 		super(message, t);
 	}
 
+	public FileClientException(String message){
+		super(message);
+	}
 }

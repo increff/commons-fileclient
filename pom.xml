@@ -199,8 +199,8 @@
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git://github.com/increff/commons-fileclient.git</connection>
-		<developerConnection>scm:git:git@github.com:increff/commons-fileclient.git</developerConnection>
+		<connection>scm:git:https://github.com/increff/commons-fileclient.git</connection>
+		<developerConnection>scm:git:https://github.com/increff/commons-fileclient.git</developerConnection>
 		<url>https://github.com/increff/commons-fileclient</url>
 		<tag>increff-commons-fileclient-2.0.0</tag>
 	</scm>

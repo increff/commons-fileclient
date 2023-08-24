@@ -100,15 +100,14 @@ public class GcpFileProvider extends AbstractFileProvider {
 	@Override
 	public void create(String filePath, InputStream is, Map<String,String> metadata) throws FileClientException {
 		BlobId blobId = BlobId.of(bucketName, filePath);
-		BlobInfo blobInfo = null;
-		if (metadata != null) {
-			blobInfo = BlobInfo.newBuilder(blobId).setMetadata(metadata).build();
-		} else {
-			blobInfo = BlobInfo.newBuilder(blobId).build();
-		}
+		BlobInfo.Builder builder = BlobInfo.newBuilder(blobId);
+		if (Objects.nonNull(metadata))
+			builder.setMetadata(metadata);
+		BlobInfo blobInfo = builder.build();
+
 		try {
 			storage.create(blobInfo, IOUtils.toByteArray(is));
-		}catch (IOException e){
+		} catch (IOException e){
 			throw new FileClientException("Error while creating file: "+e.getMessage(), e);
 		}
 	}

@@ -15,6 +15,7 @@
 package com.increff.commons.fileclient;
 
 import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -129,6 +130,22 @@ public class FileClient {
 	public List<ObjectSummary> getAllObjects(String directory) throws FileClientException {
 		try {
 			return provider.getAllObjects(directory);
+		} catch (Exception e) {
+			throw new FileClientException(e);
+		}
+	}
+
+	public InputStream get(String filePath) throws FileClientException{
+		try {
+			return provider.get(filePath);
+		} catch (Exception e) {
+			throw new FileClientException(e);
+		}
+	}
+
+	public URL getSignedUri(String filePath) throws FileClientException {
+		try {
+			return provider.getSignedUri(filePath);
 		} catch (Exception e) {
 			throw new FileClientException(e);
 		}

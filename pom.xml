@@ -101,7 +101,6 @@
 		<guava.version>33.0.0-jre</guava.version>
 		<apache.commons.version>2.15.0</apache.commons.version>
 		<org.json.version>20240205</org.json.version>
-		<jakarta.xml.bind.version>2.3.2</jakarta.xml.bind.version>
 	</properties>
 
 	<repositories>

@@ -80,12 +80,14 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.10</version>
+				<version>1.6.7</version>
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>ossrh</serverId>
 					<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					<timeout>300000</timeout> <!-- Timeout set to 300 seconds (300000 milliseconds) -->
+        			<retryFailedDeploymentCount>3</retryFailedDeploymentCount>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -199,7 +201,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
-			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
 		<repository>
 			<id>ossrh</id>

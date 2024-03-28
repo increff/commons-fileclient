@@ -78,7 +78,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-			<plugin>
 			    <groupId>org.sonatype.plugins</groupId>
 			    <artifactId>nexus-staging-maven-plugin</artifactId>
 			    <version>1.6.7</version>
@@ -90,7 +89,6 @@
 			        <username>${settings.servers.server.username}</username>
 			        <password>${settings.servers.server.password}</password>
 			    </configuration>
-			</plugin>
 		</plugins>
 	</build>
 	<packaging>jar</packaging>

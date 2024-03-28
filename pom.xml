@@ -89,6 +89,7 @@
 			        <username>${settings.servers.server.username}</username>
 			        <password>${settings.servers.server.password}</password>
 			    </configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<packaging>jar</packaging>

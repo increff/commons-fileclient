@@ -78,17 +78,15 @@
 				</executions>
 			</plugin>
 			<plugin>
-			    <groupId>org.sonatype.plugins</groupId>
-			    <artifactId>nexus-staging-maven-plugin</artifactId>
-			    <version>1.6.7</version>
-			    <extensions>true</extensions>
-			    <configuration>
-			        <serverId>ossrh</serverId>
-			        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-			        <autoReleaseAfterClose>true</autoReleaseAfterClose>
-			        <username>${settings.servers.server.username}</username>
-			        <password>${settings.servers.server.password}</password>
-			    </configuration>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.13</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -213,7 +211,7 @@
 		<connection>scm:git:https://github.com/increff/commons-fileclient.git</connection>
 		<developerConnection>scm:git:https://github.com/increff/commons-fileclient.git</developerConnection>
 		<url>https://github.com/increff/commons-fileclient</url>
-		<tag>increff-commons-fileclient-2.0.0</tag>
+		<tag>increff-commons-fileclient-1.1.6-SNAPSHOT</tag>
 	</scm>
 
 	<licenses>

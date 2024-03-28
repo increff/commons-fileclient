@@ -17,7 +17,7 @@
 
 	<groupId>com.increff.commons</groupId>
 	<artifactId>increff-commons-fileclient</artifactId>
-	<version>1.1.6-SNAPSHOT</version>
+	<version>1.1.7-SNAPSHOT</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -80,14 +80,12 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.13</version>
+				<version>1.6.7</version>
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>ossrh</serverId>
 					<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-					<timeout>300000</timeout> <!-- Timeout set to 300 seconds (300000 milliseconds) -->
-        			<retryFailedDeploymentCount>3</retryFailedDeploymentCount>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -213,7 +211,7 @@
 		<connection>scm:git:https://github.com/increff/commons-fileclient.git</connection>
 		<developerConnection>scm:git:https://github.com/increff/commons-fileclient.git</developerConnection>
 		<url>https://github.com/increff/commons-fileclient</url>
-		<tag>increff-commons-fileclient-2.0.0</tag>
+		<tag>increff-commons-fileclient-1.1.7-SNAPSHOT</tag>
 	</scm>
 
 	<licenses>

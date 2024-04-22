@@ -101,6 +101,8 @@
 		<guava.version>20.0</guava.version>
 		<apache.commons.version>2.5</apache.commons.version>
 		<org.json.version>20180813</org.json.version>
+		<log4j.version>1.2.17</log4j.version>
+		<lombok.version>1.16.10</lombok.version>
 	</properties>
 	<repositories>
 		<!-- For Spring -->
@@ -136,6 +138,33 @@
 		</repository>
 	</repositories>
 	<dependencies>
+
+
+
+
+		<!--Lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
+		<!--log4j-->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- SFTP - https://mvnrepository.com/artifact/com.hierynomus/sshj -->
+		<dependency>
+			<groupId>com.hierynomus</groupId>
+			<artifactId>sshj</artifactId>
+			<version>0.38.0</version>
+		</dependency>
+
+
 		<!-- AWS -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>

@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -56,7 +57,7 @@ public class SftpFileProvider extends AbstractFileProvider {
 			sftpClient.close();
 			client.disconnect();
 		} catch (IOException e) {
-			log.error("SFTP Create Error for file " + filePath + ". " + e.getMessage());
+			log.error("SFTP Create Error for file " + filePath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
 			throw new FileClientException("SFTP Create Error for file " + filePath + ". " + e.getMessage());
 		}
 	}

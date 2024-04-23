@@ -140,7 +140,12 @@
 	<dependencies>
 
 
-
+		<!-- SFTP - https://mvnrepository.com/artifact/com.jcraft/jsch -->
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.55</version>
+		</dependency>
 
 		<!--Lombok-->
 		<dependency>
@@ -156,14 +161,6 @@
 			<version>${log4j.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
-		<!-- SFTP - https://mvnrepository.com/artifact/com.hierynomus/sshj -->
-		<dependency>
-			<groupId>com.hierynomus</groupId>
-			<artifactId>sshj</artifactId>
-			<version>0.38.0</version>
-		</dependency>
-
 
 		<!-- AWS -->
 		<dependency>

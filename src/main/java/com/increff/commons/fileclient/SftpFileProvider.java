@@ -14,49 +14,46 @@
 
 package com.increff.commons.fileclient;
 
-import com.amazonaws.services.s3.model.*;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
 import lombok.extern.log4j.Log4j;
-import net.schmizz.sshj.SSHClient;
-import net.schmizz.sshj.sftp.SFTPClient;
-import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
-
+import com.jcraft.jsch.*;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Log4j
 public class SftpFileProvider extends AbstractFileProvider {
 
-	private final SSHClient client;
-	private final String filePath; // can be local or remote based on get/put
+	private final ChannelSftp channelSftp;
+	private final String filePath; // can be local or remote path based on get/put
 
 	public SftpFileProvider(String remoteHost, String username, String password,
 							String filePath) throws IOException {
-		SSHClient client = new SSHClient();
-		client.addHostKeyVerifier(new PromiscuousVerifier());
-		client.connect(remoteHost);
-		client.useCompression();
-		client.authPassword(username, password);
-		this.client = client;
-		this.filePath = filePath;
+		try {
+			JSch jsch = new JSch();
+			JSch.setConfig("StrictHostKeyChecking", "no");
+			Session jschSession = jsch.getSession(username, remoteHost);
+			jschSession.setPassword(password);
+			jschSession.connect();
+			this.channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
+			this.filePath = filePath;
+		} catch (Exception e) {
+			log.error("SFTP Error for file " + filePath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
+			throw new IOException("SFTP Error for file " + filePath + ". " + e.getMessage());
+		}
 	}
 
 	@Override
 	public void create(String remoteFilePath, InputStream is) throws FileClientException {
 		try {
-			SFTPClient sftpClient = client.newSFTPClient();
-			sftpClient.put(filePath, remoteFilePath);
-
-			sftpClient.close();
-			client.disconnect();
-		} catch (IOException e) {
+			channelSftp.connect();
+			channelSftp.put(this.filePath, remoteFilePath);
+			channelSftp.exit();
+		} catch (Exception e) {
 			log.error("SFTP Create Error for file " + filePath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
 			throw new FileClientException("SFTP Create Error for file " + filePath + ". " + e.getMessage());
 		}

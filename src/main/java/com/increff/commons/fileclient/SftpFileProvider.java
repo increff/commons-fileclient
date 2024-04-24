@@ -46,7 +46,7 @@ public class SftpFileProvider extends AbstractFileProvider {
 
 	@Override
 	public void create(String filePath, InputStream is) throws FileClientException {
-
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
@@ -63,27 +63,27 @@ public class SftpFileProvider extends AbstractFileProvider {
 
 	@Override
 	public String getReadUri(String filePath) {
-		return null;
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
 	public void delete(String filePath) throws FileClientException {
-
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
 	public String getWriteUri(String filePath) throws FileClientException {
-		return null;
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
 	public List<ObjectSummary> getAllObjects(String directory) throws FileClientException {
-		return null;
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 	@Override
 	public InputStream get(String filePath) throws FileClientException {
-		return null;
+		throw new UnsupportedOperationException("Not implemented");
 	}
 
 }

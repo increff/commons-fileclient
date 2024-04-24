@@ -29,10 +29,8 @@ import java.util.List;
 public class SftpFileProvider extends AbstractFileProvider {
 
 	private final ChannelSftp channelSftp;
-	private final String filePath; // can be local or remote path based on get/put
 
-	public SftpFileProvider(String remoteHost, String username, String password,
-							String filePath) throws IOException {
+	public SftpFileProvider(String remoteHost, String username, String password) throws IOException {
 		try {
 			JSch jsch = new JSch();
 			JSch.setConfig("StrictHostKeyChecking", "no");
@@ -40,22 +38,26 @@ public class SftpFileProvider extends AbstractFileProvider {
 			jschSession.setPassword(password);
 			jschSession.connect();
 			this.channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
-			this.filePath = filePath;
 		} catch (Exception e) {
-			log.error("SFTP Error for file " + filePath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
-			throw new IOException("SFTP Error for file " + filePath + ". " + e.getMessage());
+			log.error("SFTP Connection Error. " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
+			throw new IOException("SFTP Connection Error. " + e.getMessage());
 		}
 	}
 
 	@Override
-	public void create(String remoteFilePath, InputStream is) throws FileClientException {
+	public void create(String filePath, InputStream is) throws FileClientException {
+
+	}
+
+	@Override
+	public void create(String localFilepath, String remoteFilepath) throws FileClientException {
 		try {
 			channelSftp.connect();
-			channelSftp.put(this.filePath, remoteFilePath);
+			channelSftp.put(localFilepath, remoteFilepath);
 			channelSftp.exit();
 		} catch (Exception e) {
-			log.error("SFTP Create Error for file " + filePath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
-			throw new FileClientException("SFTP Create Error for file " + filePath + ". " + e.getMessage());
+			log.error("SFTP Create Error. Local file: " + localFilepath + ", Remote file: " + remoteFilepath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
+			throw new FileClientException("SFTP Create Error. Local file: " + localFilepath + ", Remote file: " + remoteFilepath + ". " + e.getMessage());
 		}
 	}
 

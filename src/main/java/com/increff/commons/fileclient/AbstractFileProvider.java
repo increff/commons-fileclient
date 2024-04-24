@@ -28,6 +28,10 @@ public abstract class AbstractFileProvider {
 		throw new FileClientException("This method is not implemented");
 	}
 
+	public void create(String localFilepath, String remoteFilepath) throws FileClientException { // todo : implement for aws and gcp
+		throw new FileClientException("This method is not implemented");
+	}
+
 	/* API to use when directly writing large files */
 	public void createForLargeFiles(String filePath, InputStream is) throws FileClientException {
 		create(filePath, is);

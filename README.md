@@ -1,5 +1,5 @@
 # commons-fileclient
-This library is used for storage and retrieval of documents from cloud storage platforms such as Google Cloud Storage, Amazon S3 etc.
+This library is used for storage and retrieval of documents from cloud storage platforms such as Google Cloud Storage, AWS S3 etc.
 
 ## Contents
 - [commons-lang](#commons-lang)

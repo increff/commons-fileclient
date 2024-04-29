@@ -41,8 +41,14 @@ public class FileClient {
 			provider.create(filePath, is);
 	}
 
+	/**
+	 * Creates file at specified location
+	 * Primarily Used for SFTP
+	 * @param localFilepath Path at which local file to push is located
+	 * @param remoteFilepath Custom path at which to create file
+	 */
 	public void create(String localFilepath, String remoteFilepath) throws FileClientException {
-		throw new FileClientException("This method is not implemented");
+		provider.create(localFilepath, remoteFilepath);
 	}
 
 	/**

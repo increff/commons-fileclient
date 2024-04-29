@@ -36,7 +36,7 @@ public class SftpFileProvider extends AbstractFileProvider {
 			JSch.setConfig("StrictHostKeyChecking", "no");
 			Session jschSession = jsch.getSession(username, remoteHost);
 			jschSession.setPassword(password);
-			jschSession.connect();
+			jschSession.connect(); // todo : this never disconnects
 			this.channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
 		} catch (Exception e) {
 			log.error("SFTP Connection Error. " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));

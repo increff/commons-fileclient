@@ -41,6 +41,10 @@ public class FileClient {
 			provider.create(filePath, is);
 	}
 
+	public void create(String localFilepath, String remoteFilepath) throws FileClientException {
+		throw new FileClientException("This method is not implemented");
+	}
+
 	/**
 	 * Creates file at specified location with some metaData
 	 * Use this mechanism only when you want your own custom path.

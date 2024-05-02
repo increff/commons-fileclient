@@ -30,7 +30,7 @@ public class SftpFileProvider extends AbstractFileProvider {
 
 	private final ChannelSftp channelSftp;
 
-	public SftpFileProvider(String remoteHost, String username, String password) throws IOException {
+	public SftpFileProvider(String remoteHost, String username, String password) throws FileClientException {
 		try {
 			JSch jsch = new JSch();
 			JSch.setConfig("StrictHostKeyChecking", "no");
@@ -40,7 +40,7 @@ public class SftpFileProvider extends AbstractFileProvider {
 			this.channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
 		} catch (Exception e) {
 			log.error("SFTP Connection Error. " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
-			throw new IOException("SFTP Connection Error. " + e.getMessage());
+			throw new FileClientException("SFTP Connection Error. " + e.getMessage());
 		}
 	}
 

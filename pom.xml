@@ -114,7 +114,9 @@
 		<guava.version>33.0.0-jre</guava.version>
 		<apache.commons.version>2.15.0</apache.commons.version>
 		<org.json.version>20240205</org.json.version>
-	</properties>
+        <jsch.version>0.2.17</jsch.version>
+
+    </properties>
 
 	<repositories>
 		<!-- For Spring -->
@@ -151,6 +153,13 @@
 	</repositories>
 
 	<dependencies>
+        <!-- SFTP - https://mvnrepository.com/artifact/com.github.mwiede/jsch -->
+        <dependency>
+            <groupId>com.github.mwiede</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
+        </dependency>
+
 		<!-- AWS -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>

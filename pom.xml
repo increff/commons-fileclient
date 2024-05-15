@@ -103,6 +103,7 @@
 		<org.json.version>20180813</org.json.version>
 		<log4j.version>1.2.17</log4j.version>
 		<lombok.version>1.16.10</lombok.version>
+		<jsch.version>0.1.55</jsch.version>
 	</properties>
 	<repositories>
 		<!-- For Spring -->
@@ -144,7 +145,7 @@
 		<dependency>
 			<groupId>com.jcraft</groupId>
 			<artifactId>jsch</artifactId>
-			<version>0.1.55</version>
+			<version>${jsch.version}</version>
 		</dependency>
 
 		<!--Lombok-->

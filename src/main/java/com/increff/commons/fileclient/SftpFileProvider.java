@@ -19,25 +19,24 @@ import com.jcraft.jsch.JSch;
 import lombok.extern.log4j.Log4j;
 import com.jcraft.jsch.*;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 
 @Log4j
 public class SftpFileProvider extends AbstractFileProvider {
 
-	private final ChannelSftp channelSftp;
+	private final String remoteHost;
+	private final String username;
+	private final String password;
 
 	public SftpFileProvider(String remoteHost, String username, String password) throws FileClientException {
 		try {
-			JSch jsch = new JSch();
-			JSch.setConfig("StrictHostKeyChecking", "no");
-			Session jschSession = jsch.getSession(username, remoteHost);
-			jschSession.setPassword(password);
-			jschSession.connect(); // todo : this never disconnects
-			this.channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
+			this.remoteHost = remoteHost;
+			this.username = username;
+			this.password = password;
 		} catch (Exception e) {
 			log.error("SFTP Connection Error. " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
 			throw new FileClientException("SFTP Connection Error. " + e.getMessage());
@@ -51,13 +50,19 @@ public class SftpFileProvider extends AbstractFileProvider {
 
 	@Override
 	public void create(String localFilepath, String remoteFilepath) throws FileClientException {
+		Session session = null;
+		ChannelSftp channel = null;
 		try {
-			channelSftp.connect();
-			channelSftp.put(localFilepath, remoteFilepath);
-			channelSftp.exit();
+			session = connectSession();
+			channel = connectChannel(session);
+
+			channel.put(localFilepath, remoteFilepath);
+
 		} catch (Exception e) {
-			log.error("SFTP Create Error. Local file: " + localFilepath + ", Remote file: " + remoteFilepath + ". " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
-			throw new FileClientException("SFTP Create Error. Local file: " + localFilepath + ", Remote file: " + remoteFilepath + ". " + e.getMessage());
+			log.error("Failed to create local file: " + localFilepath + ", remote file: " + remoteFilepath + " on SFTP. " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
+			throw new FileClientException("Failed to create local file: " + localFilepath + ", remote file: " + remoteFilepath + " on SFTP. " + e.getMessage(), e);
+		} finally {
+			closeQuietly(channel, session);
 		}
 	}
 
@@ -68,7 +73,18 @@ public class SftpFileProvider extends AbstractFileProvider {
 
 	@Override
 	public void delete(String filePath) throws FileClientException {
-		throw new UnsupportedOperationException("Not implemented");
+		Session session = null;
+		ChannelSftp channel = null;
+		try {
+			session = connectSession();
+			channel = connectChannel(session);
+
+			channel.rm(filePath);
+		} catch (Exception e) {
+			throw new FileClientException("Failed to delete file: " + filePath + " on SFTP. " + e.getMessage(), e);
+		} finally {
+			closeQuietly(channel, session);
+		}
 	}
 
 	@Override
@@ -85,5 +101,33 @@ public class SftpFileProvider extends AbstractFileProvider {
 	public InputStream get(String filePath) throws FileClientException {
 		throw new UnsupportedOperationException("Not implemented");
 	}
+
+	private Session connectSession() throws JSchException {
+		JSch jsch = getjSch();
+		Session session = jsch.getSession(username, remoteHost);
+		session.setPassword(password);
+		session.connect();
+		return session;
+	}
+
+	private ChannelSftp connectChannel(Session session) throws JSchException {
+		ChannelSftp channel = (ChannelSftp) session.openChannel("sftp");
+		channel.connect();
+		return channel;
+	}
+
+	private void closeQuietly(ChannelSftp channel, Session session) {
+		if(Objects.nonNull(channel))
+			channel.exit();
+		if(Objects.nonNull(session))
+			session.disconnect();
+	}
+
+	private JSch getjSch() {
+		JSch jsch = new JSch();
+		JSch.setConfig("StrictHostKeyChecking", "no");
+		return jsch;
+	}
+
 
 }

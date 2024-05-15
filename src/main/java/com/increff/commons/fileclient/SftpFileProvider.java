@@ -37,9 +37,11 @@ public class SftpFileProvider extends AbstractFileProvider {
 			this.remoteHost = remoteHost;
 			this.username = username;
 			this.password = password;
+
+			testConnection();
 		} catch (Exception e) {
 			log.error("SFTP Connection Error. " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
-			throw new FileClientException("SFTP Connection Error. " + e.getMessage());
+			throw new FileClientException(e.getMessage(), e);
 		}
 	}
 
@@ -127,6 +129,19 @@ public class SftpFileProvider extends AbstractFileProvider {
 		JSch jsch = new JSch();
 		JSch.setConfig("StrictHostKeyChecking", "no");
 		return jsch;
+	}
+
+	private void testConnection() throws FileClientException {
+		Session session = null;
+		ChannelSftp channel = null;
+		try {
+			session = connectSession();
+			channel = connectChannel(session);
+		} catch (Exception e) {
+			throw new FileClientException("Failed to test connection on SFTP. " + e.getMessage(), e);
+		} finally {
+			closeQuietly(channel, session);
+		}
 	}
 
 

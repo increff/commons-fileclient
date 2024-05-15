@@ -14,6 +14,7 @@
 
 package com.increff.commons.fileclient;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,10 @@ public abstract class AbstractFileProvider {
 	public abstract void create(String filePath, InputStream is) throws FileClientException;
 
 	public void create(String filePath, InputStream is, Map<String,String> metaData) throws FileClientException {
+		throw new FileClientException("This method is not implemented");
+	}
+
+	public void create(String localFilepath, String remoteFilepath) throws FileClientException {
 		throw new FileClientException("This method is not implemented");
 	}
 

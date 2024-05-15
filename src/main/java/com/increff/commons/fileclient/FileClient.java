@@ -42,6 +42,16 @@ public class FileClient {
 	}
 
 	/**
+	 * Creates file at specified location
+	 * Primarily Used for SFTP
+	 * @param localFilepath Path at which local file to push is located
+	 * @param remoteFilepath Custom path at which to create file
+	 */
+	public void create(String localFilepath, String remoteFilepath) throws FileClientException {
+		provider.create(localFilepath, remoteFilepath);
+	}
+
+	/**
 	 * Creates file at specified location with some metaData
 	 * Use this mechanism only when you want your own custom path.
 	 * Only GCP File Provider have its implementation

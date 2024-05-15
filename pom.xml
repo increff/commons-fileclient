@@ -115,6 +115,7 @@
 		<apache.commons.version>2.15.0</apache.commons.version>
 		<org.json.version>20240205</org.json.version>
         <jsch.version>0.2.17</jsch.version>
+		<commons-springboot-common.version>0.0.1</commons-springboot-common.version>
 
     </properties>
 
@@ -153,6 +154,13 @@
 	</repositories>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>commons-springboot-common</artifactId>
+			<version>${commons-springboot-common.version}</version>
+		</dependency>
+
         <!-- SFTP - https://mvnrepository.com/artifact/com.github.mwiede/jsch -->
         <dependency>
             <groupId>com.github.mwiede</groupId>

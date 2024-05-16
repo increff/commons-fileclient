@@ -14,8 +14,9 @@
 
 package com.increff.commons.fileclient;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -24,8 +25,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class FileClientWithAwsIT {
 
@@ -33,7 +34,7 @@ public class FileClientWithAwsIT {
 	private static FileClient fileClient;
 	private static final String tempBasePath = "test";
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws IOException {
 		props = new Properties();
 		props.load(new FileInputStream("test.properties"));

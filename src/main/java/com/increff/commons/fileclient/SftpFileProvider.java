@@ -16,8 +16,8 @@ package com.increff.commons.fileclient;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
-import lombok.extern.log4j.Log4j;
 import com.jcraft.jsch.*;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.InputStream;
 import java.util.Arrays;
@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-@Log4j
+@Log4j2
 public class SftpFileProvider extends AbstractFileProvider {
 
 	private final String remoteHost;

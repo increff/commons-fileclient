@@ -18,6 +18,14 @@
 	<groupId>com.increff.commons</groupId>
 	<artifactId>increff-commons-fileclient</artifactId>
 	<version>2.0.0-SNAPSHOT</version>
+
+	<parent>
+		<!-- version for all the spring boot starters -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.0</version>
+	</parent>
+
 	<build>
 		<plugins>
 			<plugin>

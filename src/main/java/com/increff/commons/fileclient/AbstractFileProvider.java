@@ -16,6 +16,7 @@ package com.increff.commons.fileclient;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +25,7 @@ public abstract class AbstractFileProvider {
 	/* API to use when directly writing */
 	public abstract void create(String filePath, InputStream is) throws FileClientException;
 
-	public void create(String filePath, InputStream is, Map<String,String> metaData) throws FileClientException {
+	public void create(String filePath, InputStream is, Map<String, String> metaData) throws FileClientException {
 		throw new FileClientException("This method is not implemented");
 	}
 
@@ -55,4 +56,8 @@ public abstract class AbstractFileProvider {
 
 	/* API to use when directly reading */
 	public abstract InputStream get(String filePath) throws FileClientException;
+
+	public URL getSignedUri(String filePath) throws FileClientException {
+		throw new FileClientException("Method not implemented");
+	}
 }

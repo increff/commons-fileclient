@@ -24,6 +24,7 @@ import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
@@ -182,6 +183,13 @@ public class GcpFileProvider extends AbstractFileProvider {
 		BlobId blobId = BlobId.of(bucketName, filePath);
 		Blob blob = storage.get(blobId);
 		return new ByteArrayInputStream(blob.getContent());
+	}
+
+	@Override
+	public URL getSignedUri(String filePath) {
+		BlobId blobId = BlobId.of(bucketName, filePath);
+		BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
+		return storage.signUrl(blobInfo, 10, TimeUnit.SECONDS);
 	}
 
 	/* HELPER METHOD */

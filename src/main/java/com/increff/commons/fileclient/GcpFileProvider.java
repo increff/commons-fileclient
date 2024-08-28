@@ -64,6 +64,13 @@ public class GcpFileProvider extends AbstractFileProvider {
 		}
 	}
 
+	//Use this method to use service account linked to GCP environment like GKE, GCE, GCP VM etc.
+	public GcpFileProvider(String baseUrl, String bucketName) {
+		this.baseUrl = baseUrl;
+		this.bucketName = bucketName;
+		storage = StorageOptions.getDefaultInstance().getService();
+	}
+
 	/*
 	Do not use this constructor for creating signed URLS
 	 */
